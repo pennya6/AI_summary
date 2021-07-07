@@ -1,1 +1,25 @@
+인공지능
 
+인공지능의 종류
+ - Strong AI : Human-like intelligence, 모든 분야에서 인간 수준의 AI
+               ex) 무인 자동차
+ - Weak AI : Intelligence to solve specific problems, 특정 임무 수행 
+             ex) 알파고, 로봇 청소기, 번역 시스템
+             
+AI Technology
+ 1.인지(perception) -> Natural Language Processing, Speech Recongition, Computer Vision
+   - 인식의 분류 : 
+   
+                  사례인식(instance) - 기하하적 접근 방법이 주, Roberts의 블록 세계, Guzman의 곡면 추가, Binford의 일반 실린더 등
+   
+                  범주인식(category) - 단어 가방을 범주 인식에 적용 
+                 
+ 2.학습(Reasoning/Learning) -> Machine Learning(Deep Learning)
+ 3.행동(Act) -> Robots, Autonomous Vehicles, AI speaker, Chatbot
+ 
+ 기계학습 : 데이터를 정보로 변환하는 것
+ 
+ 기계학습의 구분
+  1. 지도학습 - Task Driven(Regression/Classification)
+  2. 비지도학습- Data Driven(Clustering)
+  3. 강화학습 - Algorithm learns to react to an environmnet
