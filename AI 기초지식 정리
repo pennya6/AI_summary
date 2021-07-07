@@ -21,5 +21,21 @@ AI Technology
  
  기계학습의 구분
   1. 지도학습 - Task Driven(Regression/Classification)
+                부류 정보를 가진 샘플 (x,t)로 구성된 학습 집합 사용 -> 일반적으로 입력 객체에 대한 속성을 벡터 형태로 포함
+                훈련 데이터로부터 하나의 함수를 유추해내기 위한 방법
+                훈련 데이터로부터 주어진 데이터에 대해 예측하고자 하는 값을 올바로 추측해내면 목표에 달성하기 위해서
+                알맞은 방법으로 되었다 라는 개념 학습
+                ex) 분류, 회귀문제
+                
   2. 비지도학습- Data Driven(Clustering)
+                 지도 학습에서 사용했던 (x,t)중에 부류 정보 t가 없는 상황의 학습
+                 유사한 특징 벡터들을 모으는 군집화 수행
+                 ex) Clustering, Dimentionality Reduction, Hidden Markov Model, K-menas, SOM 신경망, 민시프트
+        
   3. 강화학습 - Algorithm learns to react to an environmnet
+  
+  
+ Deep Learning : MLP의 은닉층 개수를 늘린 깊은 신경망, 여러 비선형 변환 기법의 조합을 통해 높은 수준의 추상화를 시도하는 기계학습 알고리즘의 집합
+                 사람의 사고방식을 컴퓨터에게 가르치는 기계학습의 한 분야이다.
+                 
+ CNN(Convolutional Neural Network) : 특징 추출과 분류를 하나의 학습 모델로 처리한다.
