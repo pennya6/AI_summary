@@ -1,0 +1,88 @@
+빅데이터 설계 프로세스는 두가지의 주요 단계로 구성되어있다.
+ 1. 데이터 관리
+ 2. 데이터 훈련 및 지속적인 정확도 개선
+ 
+ 
+빅데이터 설계를 위한 단계
+ 1. 라이브러리 로딩
+ 2. 데이터셋 로딩
+ 3. 데이터 관찰
+ 4. 통계분석 -> 불필요한 열 제거, 중복데이터 제거, null값 제거 등 
+ 5. training 및 testing 데이터셋 분할
+ 6. 훈련 모델과 정확도 확인
+ 7. 하이퍼 파라미터 (k의 수)를 조정하여 정확도 향상
+ 8. training 및 testing 데이터 셋 비율 변경
+ 9. 데이터 정규화
+ 10. 이상 값 처리
+
+
+단계 적용 예시
+ 1. 라이브러리 로딩
+ 2. 데이터셋 로딩
+ 3. 데이터 관찰
+    -> print(df.head())
+       print(df.shape)
+       print(df.info())
+       
+ 4. 통계분석 -> 불필요한 열 제거, 중복데이터 제거, null값 제거 등
+    -> 데이터를 더 잘 이해하기 위해 탐색적 데이터 분석(EDA)를 수행
+       
+       1)trestbps 속성의 히스토그램
+       plt.hist(df['trestbps'])
+       plt.xlabel('Resting Blood Pressure')
+       plt.ylabel('Value')
+       plt.show()
+       
+       2)모든 속성의 이상 값
+       data_to_boxplot=[df['age'],df['trestbps'],df['chol'],df['thalach'],df['oldpeak']]
+       plt.boxplot(data_to_boxplot)
+       plt.xlabel('Attributes')
+       plt.ylabel('Value')
+       plt.show()
+       
+       3)누락된 값
+       print(df.isnull().sum())
+       
+ 5. training 및 testing 데이터셋 분할
+    -> 정확도를 확인하기 위해 training 및 test 데이터셋으로 분할
+       training_points=df.drop(columns=['target'])
+       training_labels=df['target']
+       x_train,x_test,y_train,y_test = train_test_split( training_points,training_labels,test_size=0.3,random_state=4 )
+       
+ 6. 훈련 모델과 정확도 확인
+    -> 모델 훈련(k=5)와 정확도 확인
+       classifier = KNeighborsClassifier(n_neighbors=5)
+       classifier.fit(x_train,y_train)
+       guesses=classifier.predict(x_test)
+       
+       print(guesses)
+       print(confusion_matrix(y_test,guesses))
+       print(metrics.accuracy_score(y_test,guesses))
+       
+ 7. 하이퍼 파라미터 (k의 수)를 조정하여 정확도 향상
+    -> k_range=range(1,50)
+    accuracy_scores=[]
+ 
+    //for문을 돌려서 파리미터 값을 변경해서 예측해보고 정확도 배열에 넣는다
+    for k in k_range:
+      classifier = KNeighborsClassifier(n_neighbors=k)
+      classifier.fit(x_train,y_train)
+      guesses=classifier.predict(x_test)
+      accuracy_scores.append(metrics.accuracy_score(y_test,guesses))
+    print(accuracy_scores)
+    
+ 8. training 및 testing 데이터 셋 비율 변경
+ 
+ 9. 데이터 정규화
+    -> 4가지 방법이 있음
+       1) Standard Scaling : 평균을 제거하고 데이터를 단위 분산으로 조정, 
+                             이상치가 있다면 평균과 표준편차에 영향을 미쳐 변환된 데이터의 확산은 매우 달라지게 된ㄷ.
+       2) Min-Max Normalization
+       
+       + 스케일링 과정
+         : 데이터를 모델링하기 전에 반드시 거쳐야 하는 과정이다. 스케일링을 통해 다차원의 값을 비교 분석하기 쉽게 맏르어준다.
+           자료의 오버플로우나 언더플로우를 방지하며 독립 변수의 공분산 행렬의 조건수를 감소시켜 최적화 과정에서의 안정선 및
+           수렴 속도를 향상시킨다.
+       
+ 10. 이상 값 처리
+ 
