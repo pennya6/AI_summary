@@ -46,7 +46,33 @@
                               
                             
 - 분류 정확도 : Confusion matrix, Accuracy, Error rate, Precision, Recall, F measure
-
+               
+               +python에서 sklearn 라이브러리 사용
+               
+               from sklearn.metrics import confusion_matrix
+               from sklearn import metrics
+               
+               
+              - Confusion matrix : 실제 값과 일치하는지 여부에 따라 예측을 분류하는 테이블
+                                   가장 일반적인 성능 측정은 한 클래스와 다른 클래스를 구별하는 모델의 능력을 고려 -> 관심클래스는 positive, 다른 것들은 negative
+                                   
+                                   +from sklearn.metrics import confusion_matrix
+                                   print(confusion_matrix(y_test,guesses))
+                                   
+              - Accuracy : 2*2 confusion matrix를 사용하여 예측 정확도(success rate이라고도 함)를 정의 할 수 있다.
+              
+              - Error rate : 오류율 또는 잘못 분류된 예의 비율은 다음과 같이 지정
+                           = 1-accuracy
+                           
+              - Precision : 진정으로 긍정인 positive 사례의 비율로 정의, 모델이 positive 클래스를 예측할 때 얼마나 자주 올바른지
+              
+              - Recall : 결과가 얼마나 정확한지를 측정
+              
+              - F-measure : 얼마나 잘 분류되었는가를 구분
+                            = 2 * Precision * Recall / (Precision + Recall)
+              
+              
+     
                               
 
                  
