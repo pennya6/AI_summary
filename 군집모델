@@ -1,0 +1,53 @@
+클러스터링 : 데이터 개체 집합을 하위 집합으로 분할하는 과정
+            종류 - K-Means, Agglomerative Filtering, DBSCAN
+             
+            적용 - 유사한 인구통계나 구매 패턴을 가진 그룹으로 고객 세분화 
+            
+             + 클러스터 : 하위 집합
+            
+            
+클러스터링 기술
+1. K-Means : k는 클러스터의 수
+             중심 기반 기술이다. 중심은 각 클러스터에 속한 개체의 평균이다.
+             가장 가까운 중심으로 각 개체를 그룹화 한다.
+             
+             절차
+             1) step 1 : 매개변수 k 결정 (단, k는 0 초과)
+             2) step 2 : 중심점을 시작하기 위해 k개의 점을 무작위로 선택
+             3) step 3 : 모든 점을 가장 가까운 중심에 할당하여 k 클러스터 형성
+             4) step 4 : 각 클러스터의 중심을 다시 계산 (각 클러스터의 평균 계산)
+             5) step 5: 중심이 변하지 않을 때까지 step 3를 반복
+             
+             +python
+             from sklearn.cluster import KMeans
+             import numpy as np
+             X = np.array([[2, 10], [2, 5], [8, 4],[5, 8], [7, 5], [6, 4], [1, 2], [4, 9]])
+             kmeans = KMeans(n_clusters=3).fit(X)
+             print("Labels: ", kmeans.labels_)
+             print("Cluster Centers: ", kmeans.cluster_centers_)
+             print("Predict Values: ", kmeans.predict([[1, 1]]))
+             
+             
+2. 병합 클러스터링 : 데이터 개체를 클러스터의 계층 또는 트리로 그룹화
+                    Bottom-up 전략
+                    각 개체가 자체 클러스터를 형성하도록 하는 것으로 시작
+                    클러스터를 더 큰 클러스터로 반복적으로 병합
+                    
+                    절차
+                    1) step 1 : 각 개체는 하나의 클러스터를 형성
+                    2) step 2 : 가장 낮은 수준의 가장 가까운 두 클러스터를 하나의 클러스터로 병합
+                    3) step 3 : 단일 클러스터가 될 때 까지 2단계 반복
+                    
+                    +python
+                    from sklearn.cluster import AgglomerativeClustering
+                    import pandas as pd
+                    import matplotlib.pyplot as plt
+                    training_points = sample_df[["col1", "col2"]]
+                    training_labels = sample_df["target"]
+                    agglo = AgglomerativeClustering(n_clusters=15).fit(training_points)
+                    plt.scatter(training_points["col1"], training_points["col2"], c=agglo.labels_, cmap='rainbow')          
+ 
+ 
+ 3. DBSCAN : 연결된 점을 기반으로 하는 클러스터링
+ 
+           
