@@ -1,3 +1,3 @@
-# datacamplus_summary
+# datacampus_summary
 
 경기대학교 산업빅데이터 전문가 과정을 진행하면서 공부한 내용의 이론 부분을 정리하였습니다.
