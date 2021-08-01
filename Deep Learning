@@ -7,3 +7,9 @@
                   일곱층으로 구성되어있음
                   앞 단 C1-S2-C3-S4-C5는 특징 추출 담당하고 뒤 단 F6-0는 분류 담당
                   
+
+
+딥러닝 프로그램
+1. 딥러닝 모델 적용 단계
+2. Classification for MNIST
+3. Classification for MINST using Keras
