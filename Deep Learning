@@ -11,5 +11,19 @@
 
 딥러닝 프로그램
 1. 딥러닝 모델 적용 단계
+  STEP 1 : 데이터 로딩
+  STEP 2 : 데이터 전처리
+  STEP 3 : 모델 정의(define) ->  add layers, pooling, convolution, batch normalization, activation function ..
+  
+           컴볼루션층 -> 활성함수(주로 ReLU 사용) -> 풀링층 -> Softmax
+  
+  STEP 4 : 모델 컴파일(complie)  ->  apply loss function 
+  STEP 5 : 모델 적합(fit)
+  STEP 6 : 모델 평가(evaluate)
+  STEP 7 : 예측하기
+  STEP 8 : 모델 저장
+
 2. Classification for MNIST
 3. Classification for MINST using Keras
+
+
