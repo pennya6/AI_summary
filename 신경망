@@ -83,9 +83,50 @@
                     
                     
    Linear Hypothesis : H(x) = Wx + b
-
-
-
+   
+   Cost Function : cost(W, b)
+               
+                  + How to minimize cost?
+                    경사하강 알고리즘( Gradient descent algorithm ) 이용
+                    
+                  + 경사하강 알고리즘 (Gradient descent algorithm)?
+                    임의의 곳에서 시작하여 경사도(gradient)에 따라 W를 변경시켜가면서 cost 함수의 값이 최소화 되는 W를 구하는 알고리즘
+                    
+   
+   Linear Regression : cost함수 cost(W, b)를 최소화하는 W와 b를 찾는 문제
+   
+   
+   구성단계
+   (1) Graph 구성(가설, 비용함수, 학습함수 정의)
+      - Hypothesis 정의, Cost/Loss 함수 정의, Train 함수 정의
+      
+   (2) Training
+   
+   (3) Testing ...
+   
+   
+   
+   + 참고 @tf.function 데코레이터
+   @tf.function : 파이썬 문법의 일부를 높은 성능의 텐서플로 그래프 코드로 변환시키기 위해 사용
+   
+   
+   
 4. Multiple Linear Regression
+   입력데이터가 1개가 아니라 여러 개인 경우
+   Hypothesis와 cost함수의 변화 -> Linear Regression과 비교하였을때 입력데이터의 수가 다르기 때문
+
+
+
 5. Logistic Regression
+   
+   Binary Logistic Classification : Class가 2개인 경우
+                                   Class(label)은 0과 1로 encoding
+                                   
+                                   새로운 hypothesis ->  H(x)=1/(1+e−WTX+b)
+                                   새로운 Cost Function 
+                                   
+                                   How to minimize cost?
+                                   - 경사하갈 알고리즘 
+
+  
 
