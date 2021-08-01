@@ -15,9 +15,45 @@
   STEP 2 : 데이터 전처리
   STEP 3 : 모델 정의(define) ->  add layers, pooling, convolution, batch normalization, activation function ..
   
-           컴볼루션층 -> 활성함수(주로 ReLU 사용) -> 풀링층 -> Softmax
-  
+           컨볼루션층 -> 활성함수(주로 ReLU 사용) -> 풀링층 -> Softmax
+                                                 -> Dropout->
+                                                 
+                                                 
+                                                 +Dropout : 망의 크기가 커질경우 overfitting 문제를 피하기 위한 방법
+                                                            입력 layer이나 hidden layer의 일부 뉴런을 생략
+                                                            노드 중 일부를 제거하는 인공지능 최적 학습기법
+                                                            모델에서 몇개의 연결을 끊고 남은 노드들을 통해서만 훈련을 하는 것
+                                                            
+                                                 +Softmax : 입력받은 값을 출력으로 0-1 사이의 값으로 모두 정규화하며 출력 값들의 총합은 항상 1이 되는 특성을 가진 함수       
+                                                  
+                                                 +            퍼셉트론       ->      다층퍼셉트론      ->        깊은 다층 퍼셉트론
+                                                 활성함수     계단함수               시그모이드함수                    ReLU
+                                                 목적함수    평균제곱오차              평균제곱오차           교차엔트로피 또는 로그우도
+                                                 
+                                                 +컨볼루션 : 해당하는 요소끼리 곱하고 결과를 모두 더하는 선형 연산
+                                                 
+                                                 +활성화 함수 : 퍼센트론 신호 출력 여부를 결정, 값을 큰 수로 감소
+                                                 
+                                                 +pooling : 표현의 크기를 줄임으로써 계산속도를 줄이고 특징을 더 잘 검출 
+                                                      
+                                                            
   STEP 4 : 모델 컴파일(complie)  ->  apply loss function 
+           
+           keras에서 모델을 만드는 방법
+           Sequential 모델 : 순차적으로 레이어 층을 더함           
+           Sequential() : hidden layers들의 Sequence를 정의
+           
+           손실함수(Loss Function) : 실제값과 예측값의 차이(loss, cost)를 수치화해주는 함수
+                                     오차가 클수록 손실 함수의 값이 크고, 오차가 작을수록 손실 함수의 값이 작아짐
+                                     손실함수의 값을 최소화하는 W, b를 찾아가는 것이 학습 목표
+                                     회귀 - 평균제곱오차
+                                     분류 - 크로스 엔트로피
+           
+          최적화(Optimizer) : 손실함수를 줄여나가면서 학습하는 방법은 어떤 최적화를 사용하는가에 따라 달라짐
+          
+          평가 메트릭스(Evaluation Matrices) : 모델평가를 위한 메트릭스를 정의함
+           
+           
   STEP 5 : 모델 적합(fit)
   STEP 6 : 모델 평가(evaluate)
   STEP 7 : 예측하기
