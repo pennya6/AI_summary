@@ -46,10 +46,24 @@
            손실함수(Loss Function) : 실제값과 예측값의 차이(loss, cost)를 수치화해주는 함수
                                      오차가 클수록 손실 함수의 값이 크고, 오차가 작을수록 손실 함수의 값이 작아짐
                                      손실함수의 값을 최소화하는 W, b를 찾아가는 것이 학습 목표
-                                     회귀 - 평균제곱오차
-                                     분류 - 크로스 엔트로피
+                                     
+                                     회귀 - 평균제곱오차(Mean Squared Error, MSE)
+                                     분류 - 크로스 엔트로피(Cross-Entropy)
+                                     
+                                     평균제곱오차(MSE) : 연속형 변수를 예측할 때 사용
+                                     
+                                     크로스 엔트로피(Cross-Entropy) : 낮은 확률로 예측해서 맞추거나, 높은 확률로 예측해서 틀리는 경우에
+                                                                     loss가 더 크다
+                                                                     
+                                                                     즉 분류문제를 풀때 크로스엔트로피를 이용해서 손실함수(cost, loss)를 정의한다.
+                                                                     
+                                                                     이진분류 : binary_crossentropy
+                                                                     다중분류 : categorical_crossentropy
            
           최적화(Optimizer) : 손실함수를 줄여나가면서 학습하는 방법은 어떤 최적화를 사용하는가에 따라 달라짐
+                              경사하강법(Gradient Descent : GD)
+                              확률적 경사 하강법(Stochastic Gradient Descent)
+                              미니 배치 경사 하강법(Mini-Batch Gradient Descent)
           
           평가 메트릭스(Evaluation Matrices) : 모델평가를 위한 메트릭스를 정의함
            
